@@ -26,6 +26,11 @@ go test ./...
   - quickjs/* is public API only.
 - Use gofmt and keep CI green.
 
+To format code:
+```bash
+go fmt ./...
+```
+
 ## Pull Requests
 
 - Open a focused PR with a clear description.
