@@ -14,7 +14,7 @@ Describe what this PR changes and why.
 
 - [ ] I ran go test ./...
 - [ ] I added or updated tests for behavior changes
-- [ ] I updated docs/readme if needed
+- [ ] I updated the [wiki](https://github.com/znt-sh/quickjs-bindings/wiki) if needed
 - [ ] I did not modify third_party/quickjs sources directly
 
 ## Notes

@@ -102,9 +102,9 @@ func (c *ContextHandle) Close() {
 }
 
 type ValueHandle struct {
-	ctx   *ContextHandle
-	raw   C.JSValue
-	owned bool
+	ctx      *ContextHandle
+	raw      C.JSValue
+	owned    bool
 	released bool
 }
 

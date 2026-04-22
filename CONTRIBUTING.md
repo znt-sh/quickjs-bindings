@@ -7,12 +7,14 @@ Thank you for contributing.
 1. Install Go 1.22+.
 2. Ensure cgo is available with a working C compiler.
 3. Clone and initialize submodules:
-
-   git submodule update --init --recursive
+```bash
+git submodule update --init --recursive
+```
 
 4. Run tests:
-
-   go test ./...
+```bash
+go test ./...
+```
 
 ## Code Style
 

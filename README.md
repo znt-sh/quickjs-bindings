@@ -34,27 +34,32 @@ macOS:
 ## Installation
 
 Add the module:
-
+```bash
 go get github.com/znt-sh/quickjs-bindings
+```
 
 If you clone this repository directly, initialize submodules:
-
+```bash
 git submodule update --init --recursive
+```
 
 ## Quick Start
 
 Run tests:
-
+```bash
 go test ./...
+```
 
 Run examples:
-
+```bash
 go run ./examples/basic
 go run ./examples/functions
 go run ./examples/sandbox
+```
 
 ## Minimal Example
 
+```go
 package main
 
 import (
@@ -90,6 +95,7 @@ func main() {
 
 	fmt.Println(out)
 }
+```
 
 ## API Overview
 
@@ -112,12 +118,12 @@ Typed helpers:
 
 ## Documentation
 
-- docs/getting-started.md
-- docs/architecture.md
-- docs/api.md
-- docs/memory-and-threading.md
-- CONTRIBUTING.md
-- SECURITY.md
+- [Getting Started](https://github.com/znt-sh/quickjs-bindings/wiki/Getting-Started)
+- [Architecture](https://github.com/znt-sh/quickjs-bindings/wiki/Architecture)
+- [API Reference](https://github.com/znt-sh/quickjs-bindings/wiki/API-Reference)
+- [Memory and Threading](https://github.com/znt-sh/quickjs-bindings/wiki/Memory-and-Threading)
+- [Contributing](https://github.com/znt-sh/quickjs-bindings/blob/main/CONTRIBUTING.md)
+- [Security](https://github.com/znt-sh/quickjs-bindings/blob/main/SECURITY.md)
 
 ## Stability and Scope
 
@@ -131,8 +137,8 @@ Not included yet:
 
 ## Contributing
 
-Contributions are welcome. Please read CONTRIBUTING.md before opening a pull request.
+Contributions are welcome. Please read [CONTRIBUTING](https://github.com/znt-sh/quickjs-bindings/blob/main/CONTRIBUTING.md) before opening a pull request.
 
 ## License
 
-MIT. See LICENSE.
+MIT. See [LICENSE](https://github.com/znt-sh/quickjs-bindings/blob/main/LICENSE).
