@@ -3,6 +3,7 @@ package cgo
 /*
 #cgo CFLAGS: -I${SRCDIR}/../../third_party/quickjs
 #cgo windows CFLAGS: -D_WIN32
+#cgo linux LDFLAGS: -lm
 
 #include <stdlib.h>
 #include "bridge.h"
