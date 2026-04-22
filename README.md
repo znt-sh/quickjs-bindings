@@ -1,8 +1,8 @@
 # quickjs-bindings
 
-[![CI](https://github.com/znt-sh/quickjs-bindings/actions/workflows/ci.yml/badge.svg)](https://github.com/znt-sh/quickjs-bindings/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8.svg)](https://go.dev/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/znt-sh/quickjs-bindings/ci.yml?style=for-the-badge&labelColor=000000&label=CI)](https://github.com/znt-sh/quickjs-bindings/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8.svg?style=for-the-badge&labelColor=000000&label=Go)](https://go.dev/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&labelColor=000000&label=License)](LICENSE)
 
 Production-focused Go bindings for the QuickJS JavaScript engine.
 
