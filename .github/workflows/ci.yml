@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test-linux:
+    name: Test (Linux)
+    runs-on: ubuntu-latest
+    env:
+      CGO_ENABLED: "1"
+      CC: gcc
+      CXX: g++
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Check formatting
+        run: |
+          set -e
+          files=$(find . -name '*.go' -not -path './third_party/*')
+          unformatted=$(gofmt -l ${files})
+          if [ -n "${unformatted}" ]; then
+            echo "Unformatted files:" 
+            echo "${unformatted}"
+            exit 1
+          fi
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        run: go test ./...
+
+  test-windows:
+    name: Test (Windows)
+    runs-on: windows-latest
+    env:
+      CGO_ENABLED: "1"
+      CC: gcc
+      CXX: g++
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Setup MSYS2 (UCRT64)
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-binutils
+
+      - name: Add UCRT64 toolchain to PATH
+        shell: pwsh
+        run: |
+          echo "C:/msys64/ucrt64/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Check formatting
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path . -Recurse -Filter *.go | Where-Object { $_.FullName -notmatch '\\third_party\\' }
+          $bad = @()
+          foreach ($f in $files) {
+            $out = gofmt -l $f.FullName
+            if ($out) { $bad += $out }
+          }
+          if ($bad.Count -gt 0) {
+            Write-Host "Unformatted files:"
+            $bad | ForEach-Object { Write-Host $_ }
+            exit 1
+          }
+
+      - name: Vet
+        shell: pwsh
+        run: go vet ./...
+
+      - name: Test
+        shell: pwsh
+        run: go test ./...

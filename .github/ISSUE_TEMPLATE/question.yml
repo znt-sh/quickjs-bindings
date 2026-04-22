@@ -1,0 +1,19 @@
+name: Question
+description: Ask a usage or design question.
+title: "question: "
+labels:
+  - question
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Include relevant code or output.
+      render: shell

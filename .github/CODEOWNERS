@@ -1,0 +1,12 @@
+# Global ownership
+* @znt-sh
+* @builtbyjonas
+
+# QuickJS vendored source
+/third_party/quickjs/ @znt-sh
+
+# Public API
+/quickjs/ @znt-sh
+
+# Internal runtime and cgo boundaries
+/internal/ @znt-sh
